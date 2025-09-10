@@ -1,0 +1,119 @@
+/* Общие стили */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top, #2c003e, #1a1a2e 60%, #0f0f1e 100%);
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+  }
+  
+  #fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  
+  .container {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .title {
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 6px 15px rgba(0,0,0,0.6);
+    margin-bottom: 30px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  button {
+    padding: 15px 35px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 100, 150, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(255, 120, 160, 0.7);
+  }
+  
+  #message {
+    display: none;
+    margin-top: 25px;
+    font-size: 2rem;
+    background: linear-gradient(90deg, #ffecd2, #fcb69f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 4px 10px rgba(255,200,200,0.5);
+    animation: fadeMessage 2s ease-in-out;
+  }
+  
+  @keyframes fadeMessage {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .heart {
+    position: absolute;
+    font-size: 32px;
+    animation: float linear forwards;
+    filter: drop-shadow(0px 0px 8px rgba(255,0,0,0.6));
+    z-index: 1;
+  }
+  
+  @keyframes float {
+    from { transform: translateY(100vh) scale(0.8); opacity: 1; }
+    to { transform: translateY(-10vh) scale(1.4); opacity: 0; }
+  }
+  
+  .hug-container {
+    position: fixed;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;
+    font-size: 5rem;
+    opacity: 0;
+    z-index: 3;
+  }
+  
+  .hug-container.active {
+    animation: hugAnimation 3s ease forwards;
+  }
+  
+  @keyframes hugAnimation {
+    0% { opacity: 0; bottom: -150px; }
+    40% { opacity: 1; bottom: 100px; }
+    70% { transform: translateX(-50%) scale(1.1); }
+    100% { opacity: 0; bottom: 150px; }
+  }
+  
+  @media (max-width: 768px) {
+    .title { font-size: 2.5rem; }
+    button { padding: 12px 25px; font-size: 1rem; }
+    #message { font-size: 1.5rem; }
+    .hug-container { font-size: 3rem; }
+  }
+  
